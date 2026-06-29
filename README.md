@@ -1,31 +1,23 @@
 # ennginie/boxicons
 
-[![Latest Version](https://img.shields.io/github/v/tag/enginermagang-hue/filament-boxicons)](https://github.com/enginermagang-hue/filament-boxicons)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Latest Version](https://img.shields.io/github/v/tag/enginermagang-hue/boxicons)](https://github.com/enginermagang-hue/boxicons)
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/enginermagang-hue/boxicons)
 
 Boxicons icon package for Laravel Filament with PHP Enum support. Provides **~3.800+ SVG icons** across three sets (regular, solid, logos), integrated via [Blade Icons](https://github.com/blade-ui-kit/blade-icons) and Filament's `ScalableIcon` enum.
 
 ## Features
 
-- 🎯 **Type-safe** — PHP `BackedEnum` prevents typos and enables IDE autocompletion
-- ⚡ **Blade-ready** — Use icons directly in Blade views via `<x-icon>` or `@svg()`
-- 🎨 **Filament-native** — Compatible with navigation icons, action icons, table columns, and form prefixes
-- 📦 **~3.800+ icons** — Regular (outline), Solid (filled), and Logos (brand) sets
-- 🔌 **Laravel auto-discovery** — Service provider auto-registers all icon sets
+- Type-safe PHP `BackedEnum` prevents typos and enables IDE autocompletion
+- Blade-ready — Use icons directly in Blade views via `<x-icon>` or `@svg()`
+- Filament-native — Compatible with navigation icons, action icons, table columns, and form prefixes
+- ~3.800+ icons — Regular (outline), Solid (filled), and Logos (brand) sets
+- Laravel auto-discovery — Service provider auto-registers all icon sets
 
 ## Installation
 
 > **Requires:** PHP ^8.2, Laravel 11.x–13.x, Filament ^5.0
 
-### 1. Authenticate with GitHub (private repo)
-
-```bash
-composer config --global github-oauth.github.com YOUR_GITHUB_TOKEN
-```
-
-Generate a [Personal Access Token](https://github.com/settings/tokens) (classic) with the `repo` scope.
-
-### 2. Configure VCS repository
+### 1. Configure VCS repository
 
 Add to your project's `composer.json`:
 
@@ -34,7 +26,7 @@ Add to your project's `composer.json`:
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/enginermagang-hue/filament-boxicons.git"
+            "url": "https://github.com/enginermagang-hue/boxicons.git"
         }
     ],
     "require": {
@@ -46,11 +38,11 @@ Add to your project's `composer.json`:
 Or using CLI:
 
 ```bash
-composer config repositories.ennginie/boxicons vcs https://github.com/enginermagang-hue/filament-boxicons.git
+composer config repositories.ennginie/boxicons vcs https://github.com/enginermagang-hue/boxicons.git
 composer require ennginie/boxicons "^1.0"
 ```
 
-### 3. Auto-discovery
+### 2. Auto-discovery
 
 The `BoxiconsServiceProvider` is auto-discovered by Laravel. No manual registration needed.
 
@@ -129,49 +121,27 @@ The package provides a PHP `BackedEnum` (`\Ennginie\Boxicons\Boxicon`) that impl
 use Ennginie\Boxicons\Boxicon;
 
 // Regular
-Boxicon::Alarm;       // value: 'alarm'       → Blade: 'bx-alarm'
-Boxicon::User;        // value: 'user'        → Blade: 'bx-user'
-Boxicon::Trash;       // value: 'trash'       → Blade: 'bx-trash'
+Boxicon::Alarm;       // value: 'alarm'       -> Blade: 'bx-alarm'
+Boxicon::User;        // value: 'user'        -> Blade: 'bx-user'
+Boxicon::Trash;       // value: 'trash'       -> Blade: 'bx-trash'
 
 // Solid (prefixed with 's-')
-Boxicon::SolidAlarm;  // value: 's-alarm'     → Blade: 'bxs-alarm'
-Boxicon::SolidInbox;  // value: 's-inbox'     → Blade: 'bxs-inbox'
+Boxicon::SolidAlarm;  // value: 's-alarm'     -> Blade: 'bxs-alarm'
+Boxicon::SolidInbox;  // value: 's-inbox'     -> Blade: 'bxs-inbox'
 
 // Logos (prefixed with 'l-')
-Boxicon::LogoGithub;  // value: 'l-github'    → Blade: 'bxl-github'
+Boxicon::LogoGithub;  // value: 'l-github'    -> Blade: 'bxl-github'
 ```
 
 ## Finding Icon Names
 
-1. **Browse the Enum** — open `vendor/ennginie/boxicons/src/Boxicon.php` and search for the icon name (e.g., `case Trash`).
-2. **Browse SVGs** — explore `vendor/ennginie/boxicons/resources/svg/{regular,solid,logos}/`.
+1. **Browse the Enum** — open `src/Boxicon.php` and search for the icon name (e.g., `case Trash`).
+2. **Browse SVGs** — explore `resources/svg/{regular,solid,logos}/`.
 3. **Official site** — visit [boxicons.com](https://boxicons.com) and convert the icon name:
-   - `bx bx-trash` → Enum: `Boxicon::Trash`, Blade: `bx-trash`
-   - `bxs bxs-inbox` → Enum: `Boxicon::SolidInbox`, Blade: `bxs-inbox`
-   - `bxl bxl-github` → Enum: `Boxicon::LogoGithub`, Blade: `bxl-github`
-
-## Development
-
-### Regenerate the Enum from SVGs
-
-If you add or remove SVG files, regenerate the `Boxicon.php` enum:
-
-```bash
-php bin/generate-boxicon-enum.php
-```
-
-This script scans `resources/svg/{regular,solid,logos}/`, converts kebab-case filenames to PascalCase enum cases, and handles reserved PHP keywords automatically.
-
-### Publishing to GitHub
-
-```bash
-git add .
-git commit -m "Your message"
-git push origin main
-git tag v1.1.0
-git push origin v1.1.0
-```
+   - `bx bx-trash` -> Enum: `Boxicon::Trash`, Blade: `bx-trash`
+   - `bxs bxs-inbox` -> Enum: `Boxicon::SolidInbox`, Blade: `bxs-inbox`
+   - `bxl bxl-github` -> Enum: `Boxicon::LogoGithub`, Blade: `bxl-github`
 
 ## License
 
-This package is open-sourced software licensed under the [MIT license](LICENSE).
+This package is open-sourced software licensed under the [MIT license](https://github.com/enginermagang-hue/boxicons).
